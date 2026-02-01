@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #1F2937;
+  --brand-navy: #1E3A8A;
+  --brand-orange: #F97316;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-lg border border-white/20 shadow-xl;
+  }
+  
+  .neumorphism {
+    @apply bg-white shadow-lg;
+    box-shadow: 
+      8px 8px 16px #d1d5db,
+      -8px -8px 16px #ffffff;
+  }
+  
+  .neumorphism-hover {
+    @apply transition-shadow duration-300;
+  }
+  
+  .neumorphism-hover:hover {
+    box-shadow: 
+      12px 12px 24px #d1d5db,
+      -12px -12px 24px #ffffff;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .shadow-neumorphism {
+    box-shadow: 
+      8px 8px 16px #d1d5db,
+      -8px -8px 16px #ffffff;
+  }
+  
+  .shadow-neumorphism-lg {
+    box-shadow: 
+      12px 12px 24px #d1d5db,
+      -12px -12px 24px #ffffff;
+  }
+  
+  .shadow-neumorphism-xl {
+    box-shadow: 
+      16px 16px 32px #d1d5db,
+      -16px -16px 32px #ffffff;
+  }
+  
+  /* Fast CSS animations - better performance than JS */
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out forwards;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out forwards;
+  }
+  
+  .animate-slide-down {
+    animation: slideDown 0.2s ease-out forwards;
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.2s ease-out forwards;
+  }
+}
+
+/* Keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
